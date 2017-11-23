@@ -7,7 +7,7 @@ class Contact
   field :phone, type: String
   field :email, type: String
 
-  auto_strip_attributes :first_name, :last_name, :phone, :email # removes whitespaces from the beginning and the end of string
+  strip_attributes # removes whitespaces from the beginning and the end of string
 
   validates_presence_of :first_name
   validates_presence_of :last_name
