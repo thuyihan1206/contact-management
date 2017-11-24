@@ -44,7 +44,7 @@ class ContactsController < ApplicationController
       fresh_when(@contact)
       render json: @contact, status: :created, location: @contact
     else
-      render json: @contact.errors, status: :unprocessable_entity
+      render json: { errors: @contact.errors.messages }, status: :unprocessable_entity
     end
   end
 
@@ -55,7 +55,7 @@ class ContactsController < ApplicationController
       fresh_when(@contact)
       render json: @contact, status: :ok, location: @contact
     else
-      render json: @contact.errors, status: :unprocessable_entity
+      render json: { errors: @contact.errors.messages }, status: :unprocessable_entity
     end
   end
 
@@ -68,7 +68,7 @@ class ContactsController < ApplicationController
       }
       render json: payload, status: :ok
     else
-      render json: @contact.errors, status: :unprocessable_entity
+      render json: { errors: @contact.errors.messages }, status: :unprocessable_entity
     end
   end
 

@@ -7,4 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 Contact.delete_all
 
-5.times { FactoryGirl.create(:contact) }
+5.times do
+  contact = FactoryGirl.create(:contact)
+  puts "created contact #{contact.last_name}, #{contact.first_name}"
+end

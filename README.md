@@ -4,7 +4,7 @@ A very simple RESTful API for managing contacts, built on Ruby on Rails and Mong
 
 A contact is a document that contains id, first_name, last_name, phone, and email.
 
-First and last name can never be blank. Phone and email are optional fields and may be blank or not provided at all.
+First name and last name can never be blank. Phone and email are optional fields and may be blank or not provided at all.
 
 # How to run
 1. Make sure you have Ruby on Rails 4.2+ and MongoDB 3.4+ installed.
@@ -19,9 +19,9 @@ First and last name can never be blank. Phone and email are optional fields and 
 ## Client class
 A convenient HTTParty client class `ContactWS` is provided to test the capability of the API. But you are free to use any tools that allow you to submit HTTP requests.  
 
-Base URI is at http://localhost:3000
+Base URI is http://localhost:3000. Base route is `/contacts`.
 
-After `rake db:seed`, you can run the following examples with `ContactWS` (substitute the request parameters according to the actual documents stored in your DB) in the Rails console (`rails c`).
+After `rake db:seed`, you can run the following examples with `ContactWS` in the Rails console (`rails c`; substitute the request parameters according to the actual documents stored in your DB).
 
 ### list contacts
 ```ruby
@@ -59,7 +59,7 @@ pp ContactWS.put('/contacts/5a177cddf600cb5bf63b9b07',
       }
     }.to_json,
     headers: {
-    'Content-Type' => 'application/json'
+      'Content-Type' => 'application/json'
     }).parsed_response
 ```
 
@@ -69,4 +69,4 @@ pp ContactWS.delete('/contacts/5a177cddf600cb5bf63b9b07').parsed_response
 ```
 
 ## Rspec
-Model and request tests are included in the API. Simply do `rspec` to run all tests.
+Model and request tests are included in the API. Run `rspec` to run all tests.

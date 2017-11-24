@@ -18,9 +18,11 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 require 'mongoid-rspec'
 require_relative 'database_cleaners.rb'
+require_relative 'requests/api_helper.rb'
 
 RSpec.configure do |config|
   config.include Mongoid::Matchers, orm: :mongoid
+  config.include ApiHelper, type: :request
 
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
