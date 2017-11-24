@@ -7,4 +7,4 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 Contact.delete_all
 
-(1..5).each { FactoryGirl.create(:contact) }
+5.times { FactoryGirl.create(:contact) }
